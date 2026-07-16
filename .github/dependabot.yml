@@ -15,6 +15,15 @@ updates:
       # ADR-0006: MediatR must stay on the Apache-2.0 licensed 12.x line.
       - dependency-name: "MediatR"
         update-types: ["version-update:semver-major"]
+      # Dependency policy: satellites reference the minimum supported version of their
+      # integration target (docs/architecture/dependency-rules.md). Majors raise the
+      # shipped floor for consumers and need a deliberate register/ADR update instead.
+      - dependency-name: "FluentValidation"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "FluentValidation.DependencyInjectionExtensions"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "Microsoft.Extensions.DependencyInjection.Abstractions"
+        update-types: ["version-update:semver-major"]
     open-pull-requests-limit: 10
 
   - package-ecosystem: github-actions
