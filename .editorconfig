@@ -32,7 +32,7 @@ dotnet_sort_system_directives_first = true
 dotnet_style_qualification_for_field = false:warning
 dotnet_style_qualification_for_property = false:warning
 dotnet_style_qualification_for_method = false:warning
-dotnet_style_require_accessibility_modifiers = always:error
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:error
 dotnet_style_readonly_field = true:error
 
 # --- Naming: private static fields are PascalCase; private instance fields are _camelCase ---

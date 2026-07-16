@@ -6,8 +6,9 @@
     <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <!-- CA1707: test names use underscores. CA2007: ConfigureAwait is a library concern, not a test concern. -->
-    <NoWarn>$(NoWarn);CA1707;CA2007;CS1591</NoWarn>
+    <!-- CA1707: test names use underscores. CA2007: ConfigureAwait is a library concern, not a
+         test concern. CA1822: MVC test controllers require instance action methods. -->
+    <NoWarn>$(NoWarn);CA1707;CA2007;CA1822;CS1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
