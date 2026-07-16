@@ -53,7 +53,8 @@ Release version: `________`  Tag: `v________`  Date: `________`  Driver: `______
 - [ ] All CI workflows green on the merge commit (build, test, package, CodeQL)
 - [ ] `package.yml` artifacts from that commit passed `validate-packages.sh` **and**
       `consumption-test.sh`
-- [ ] `NUGET_API_KEY` present in the `nuget-release` environment and not near expiry
+- [ ] nuget.org Trusted Publishing policy active (not expired-pending) for this repository,
+      `release.yml`, and the `nuget-release` environment
 
 ## 6. Tag & pipeline
 
