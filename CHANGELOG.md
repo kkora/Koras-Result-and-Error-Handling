@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.0-preview.1] - 2026-07-16
+
 ### Added
 
 - `Koras.Results` core package: `Result` and `Result<T>` readonly structs (allocation-free success path, `default` = uninitialized failure), semantic error taxonomy (`ErrorType` with 8 categories), `Error` with stable codes and metadata, `ValidationError` with field-level errors, `AggregateError` with severity precedence.
@@ -19,4 +21,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `Koras.Results.OpenTelemetry`: `TagCurrentActivity`/`TagActivity`/`TapActivityErrorAsync` activity tagging (`error.type`, `koras.error.code`) following OpenTelemetry semantic conventions, zero-dependency.
 - Repository foundation: multi-targeted builds (net8.0/net9.0/net10.0), central package management, PublicApiAnalyzers surface tracking, StyleCop, deterministic CI builds with Source Link, benchmarks, architecture tests, samples, and full documentation tree.
 
-[Unreleased]: https://github.com/korastechnologies/koras-results/compare/main...HEAD
+[Unreleased]: https://github.com/kkora/Koras-Result-and-Error-Handling/compare/v0.1.0-preview.1...HEAD
+[0.1.0-preview.1]: https://github.com/kkora/Koras-Result-and-Error-Handling/releases/tag/v0.1.0-preview.1
