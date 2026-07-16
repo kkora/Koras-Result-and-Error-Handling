@@ -2,6 +2,12 @@
   <Folder Name="/benchmarks/">
     <Project Path="benchmarks/Koras.Results.Benchmarks/Koras.Results.Benchmarks.csproj" />
   </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Console.Sample/Console.Sample.csproj" />
+    <Project Path="samples/MinimalApi.Sample/MinimalApi.Sample.csproj" />
+    <Project Path="samples/WebApi.Sample/WebApi.Sample.csproj" />
+    <Project Path="samples/WorkerService.Sample/WorkerService.Sample.csproj" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/Koras.Results.AspNetCore/Koras.Results.AspNetCore.csproj" />
     <Project Path="src/Koras.Results.FluentValidation/Koras.Results.FluentValidation.csproj" />
