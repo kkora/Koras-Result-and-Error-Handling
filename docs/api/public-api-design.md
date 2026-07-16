@@ -411,3 +411,30 @@ app.MapPost("/orders", (PlaceOrder cmd, IOrderService svc) =>
 | `KorasResultsOptions` | mutate only during configuration | Options singleton |
 | `IErrorMessageLocalizer` impls | must be thread-safe | singleton |
 | `ValidationBehavior<,>` | stateless | transient (per MediatR) |
+
+---
+
+## Implementation notes (reconciled against shipped surface)
+
+The implemented surface matches this document with the following deliberate refinements, all
+reviewed against the checklist and visible in each package's `PublicAPI.Unshipped.txt`:
+
+1. **Equality operators.** `Result` and `Result<T>` also expose `==`/`!=` operators alongside
+   `IEquatable<T>` (value-type equality guidance, CA1815).
+2. **Named conversion alternates.** `Result.FromError(Error)` exists as the named alternate for
+   the implicit `Error → Result` conversion. `Result<T>.FromValue/FromError` were **removed**:
+   CA1000 (static members on generic types) — `Result.Success<T>()`/`Result.Failure<T>()` are the
+   alternates.
+3. **Tuple element names.** The tuple-typed `Combine` overloads name their elements
+   (`First`, `Second`, `Third`, `Fourth`) for IntelliSense clarity (SA1414).
+4. **Serialization converters.** `ValidationErrorJsonConverter` and `AggregateErrorJsonConverter`
+   are public alongside `ErrorJsonConverter` so subclass-declared members deserialize without
+   polymorphic plumbing.
+5. **Constants.** `ValidationError.DefaultCode`/`DefaultMessage` and `AggregateError.DefaultCode`
+   are public constants.
+6. **MVC adapter.** The `ToActionResult(controller)` overload sketch was dropped as redundant;
+   deferred-execution adapters resolve services from the request instead. `ToActionResultOf<T>()`
+   provides the `ActionResult<T>` form.
+7. **Metadata clone semantics.** `WithMetadata` preserves the concrete error shape
+   (`ValidationError`/`AggregateError` field errors and children survive cloning) via an
+   assembly-internal virtual hook — the hierarchy remains closed (ADR-0005).
