@@ -12,18 +12,18 @@
 
   <!-- NuGet metadata shared by every package. -->
   <PropertyGroup>
-    <Authors>Koras Technologies</Authors>
+    <Authors>Kanchan Kora</Authors>
     <Company>Koras Technologies</Company>
     <Copyright>Copyright (c) Koras Technologies</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/korastechnologies/koras-results</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/korastechnologies/koras-results</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/kkora/Koras-Result-and-Error-Handling</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kkora/Koras-Result-and-Error-Handling</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>result;result-pattern;error-handling;errors;problemdetails;railway;functional;ddd;clean-architecture</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>See https://github.com/korastechnologies/koras-results/blob/main/CHANGELOG.md</PackageReleaseNotes>
+    <PackageReleaseNotes>See https://github.com/kkora/Koras-Result-and-Error-Handling/blob/main/CHANGELOG.md</PackageReleaseNotes>
   </PropertyGroup>
 
   <!-- Reproducibility, symbols, and Source Link. -->

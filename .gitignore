@@ -64,3 +64,6 @@ BenchmarkDotNet.Artifacts/
 # Coverage
 coverage/
 *.cobertura.xml
+
+# Claude Code personal settings
+.claude/settings.local.json
