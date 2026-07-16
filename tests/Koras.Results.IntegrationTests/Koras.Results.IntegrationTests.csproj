@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Koras.Results/Koras.Results.csproj" />
+    <ProjectReference Include="../../src/Koras.Results.AspNetCore/Koras.Results.AspNetCore.csproj" />
+    <ProjectReference Include="../../src/Koras.Results.FluentValidation/Koras.Results.FluentValidation.csproj" />
+    <ProjectReference Include="../../src/Koras.Results.MediatR/Koras.Results.MediatR.csproj" />
+  </ItemGroup>
+
+</Project>

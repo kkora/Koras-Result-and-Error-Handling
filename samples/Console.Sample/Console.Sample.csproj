@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleSample</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Local project references during development. To consume released packages instead, replace with:
+         <PackageReference Include="Koras.Results" Version="x.y.z" /> -->
+    <ProjectReference Include="../../src/Koras.Results/Koras.Results.csproj" />
+  </ItemGroup>
+
+</Project>

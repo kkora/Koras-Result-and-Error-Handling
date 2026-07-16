@@ -1,0 +1,60 @@
+name: Package
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  CI: "true"
+  DOTNET_NOLOGO: "true"
+  DOTNET_CLI_TELEMETRY_OPTOUT: "true"
+
+jobs:
+  pack:
+    name: Pack & validate packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack (prerelease suffix on main, PR number on PRs)
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            SUFFIX="pr.${{ github.event.pull_request.number }}.${{ github.run_number }}"
+          else
+            SUFFIX="preview.${{ github.run_number }}"
+          fi
+          dotnet pack --configuration Release --no-build -o artifacts /p:VersionSuffix="$SUFFIX"
+
+      - name: Validate package contents
+        run: bash build/validate-packages.sh artifacts
+
+      - name: Package consumption smoke test
+        run: bash build/consumption-test.sh artifacts
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: |
+            artifacts/*.nupkg
+            artifacts/*.snupkg
+          retention-days: 30

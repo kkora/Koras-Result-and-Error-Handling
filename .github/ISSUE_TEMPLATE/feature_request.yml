@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose a new feature or improvement
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem does this solve? (Not the solution — the problem.)
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API or behavior
+      description: Sketch the public API you'd expect, if applicable.
+      render: csharp
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Including "solve it in my own code" — why does this belong in the package?
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Scope check
+      options:
+        - label: I checked ROADMAP.md and this is not already planned
+          required: true
+        - label: I checked the out-of-scope list in docs/product/product-vision.md
+          required: true

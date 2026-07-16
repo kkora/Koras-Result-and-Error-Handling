@@ -1,0 +1,46 @@
+#nullable enable
+Koras.Results.AspNetCore.ActionResultExtensions
+Koras.Results.AspNetCore.HttpResultExtensions
+Koras.Results.AspNetCore.IErrorMessageLocalizer
+Koras.Results.AspNetCore.IErrorMessageLocalizer.Localize(Koras.Results.Error! error, System.Globalization.CultureInfo! culture) -> string!
+Koras.Results.AspNetCore.IErrorMessageLocalizer.LocalizeField(Koras.Results.FieldError! fieldError, System.Globalization.CultureInfo! culture) -> string!
+Koras.Results.AspNetCore.KorasResultsOptions
+Koras.Results.AspNetCore.KorasResultsOptions.GetStatusCode(Koras.Results.Error! error) -> int
+Koras.Results.AspNetCore.KorasResultsOptions.IncludeTraceId.get -> bool
+Koras.Results.AspNetCore.KorasResultsOptions.IncludeTraceId.set -> void
+Koras.Results.AspNetCore.KorasResultsOptions.IncludeUnexpectedErrorDetails.get -> bool
+Koras.Results.AspNetCore.KorasResultsOptions.IncludeUnexpectedErrorDetails.set -> void
+Koras.Results.AspNetCore.KorasResultsOptions.KorasResultsOptions() -> void
+Koras.Results.AspNetCore.KorasResultsOptions.MapErrorCode(string! errorCode, int statusCode) -> Koras.Results.AspNetCore.KorasResultsOptions!
+Koras.Results.AspNetCore.KorasResultsOptions.MapErrorType(Koras.Results.ErrorType type, int statusCode) -> Koras.Results.AspNetCore.KorasResultsOptions!
+Koras.Results.AspNetCore.KorasResultsOptions.MetadataExposure.get -> Koras.Results.AspNetCore.MetadataExposurePolicy
+Koras.Results.AspNetCore.KorasResultsOptions.MetadataExposure.set -> void
+Koras.Results.AspNetCore.KorasResultsOptions.ProblemTypeUriFactory.get -> System.Func<Koras.Results.Error!, string?>?
+Koras.Results.AspNetCore.KorasResultsOptions.ProblemTypeUriFactory.set -> void
+Koras.Results.AspNetCore.KorasResultsServiceCollectionExtensions
+Koras.Results.AspNetCore.MetadataExposurePolicy
+Koras.Results.AspNetCore.MetadataExposurePolicy.All = 1 -> Koras.Results.AspNetCore.MetadataExposurePolicy
+Koras.Results.AspNetCore.MetadataExposurePolicy.None = 0 -> Koras.Results.AspNetCore.MetadataExposurePolicy
+Koras.Results.AspNetCore.PassThroughErrorMessageLocalizer
+Koras.Results.AspNetCore.PassThroughErrorMessageLocalizer.Localize(Koras.Results.Error! error, System.Globalization.CultureInfo! culture) -> string!
+Koras.Results.AspNetCore.PassThroughErrorMessageLocalizer.LocalizeField(Koras.Results.FieldError! fieldError, System.Globalization.CultureInfo! culture) -> string!
+Koras.Results.AspNetCore.PassThroughErrorMessageLocalizer.PassThroughErrorMessageLocalizer() -> void
+Koras.Results.AspNetCore.ProblemDetailsExtensions
+static Koras.Results.AspNetCore.ActionResultExtensions.ToActionResult(this Koras.Results.Result result) -> Microsoft.AspNetCore.Mvc.IActionResult!
+static Koras.Results.AspNetCore.ActionResultExtensions.ToActionResult<T>(this Koras.Results.Result<T> result) -> Microsoft.AspNetCore.Mvc.IActionResult!
+static Koras.Results.AspNetCore.ActionResultExtensions.ToActionResult<T>(this Koras.Results.Result<T> result, System.Func<T, Microsoft.AspNetCore.Mvc.IActionResult!>! onSuccess) -> Microsoft.AspNetCore.Mvc.IActionResult!
+static Koras.Results.AspNetCore.ActionResultExtensions.ToActionResultAsync(this System.Threading.Tasks.Task<Koras.Results.Result>! resultTask) -> System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult!>!
+static Koras.Results.AspNetCore.ActionResultExtensions.ToActionResultAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask) -> System.Threading.Tasks.Task<Microsoft.AspNetCore.Mvc.IActionResult!>!
+static Koras.Results.AspNetCore.ActionResultExtensions.ToActionResultOf<T>(this Koras.Results.Result<T> result) -> Microsoft.AspNetCore.Mvc.ActionResult<T>!
+static Koras.Results.AspNetCore.HttpResultExtensions.ToCreatedHttpResult<T>(this Koras.Results.Result<T> result, System.Func<T, string!>! locationFactory) -> Microsoft.AspNetCore.Http.IResult!
+static Koras.Results.AspNetCore.HttpResultExtensions.ToHttpResult(this Koras.Results.Result result) -> Microsoft.AspNetCore.Http.IResult!
+static Koras.Results.AspNetCore.HttpResultExtensions.ToHttpResult<T>(this Koras.Results.Result<T> result) -> Microsoft.AspNetCore.Http.IResult!
+static Koras.Results.AspNetCore.HttpResultExtensions.ToHttpResult<T>(this Koras.Results.Result<T> result, System.Func<T, Microsoft.AspNetCore.Http.IResult!>! onSuccess) -> Microsoft.AspNetCore.Http.IResult!
+static Koras.Results.AspNetCore.HttpResultExtensions.ToHttpResultAsync(this System.Threading.Tasks.Task<Koras.Results.Result>! resultTask) -> System.Threading.Tasks.Task<Microsoft.AspNetCore.Http.IResult!>!
+static Koras.Results.AspNetCore.HttpResultExtensions.ToHttpResultAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask) -> System.Threading.Tasks.Task<Microsoft.AspNetCore.Http.IResult!>!
+static Koras.Results.AspNetCore.HttpResultExtensions.ToHttpResultAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask, System.Func<T, Microsoft.AspNetCore.Http.IResult!>! onSuccess) -> System.Threading.Tasks.Task<Microsoft.AspNetCore.Http.IResult!>!
+static Koras.Results.AspNetCore.KorasResultsServiceCollectionExtensions.AddKorasResults(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Koras.Results.AspNetCore.KorasResultsOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Koras.Results.AspNetCore.ProblemDetailsExtensions.ToProblemDetails(this Koras.Results.Error! error, Koras.Results.AspNetCore.KorasResultsOptions? options = null, Koras.Results.AspNetCore.IErrorMessageLocalizer? localizer = null) -> Microsoft.AspNetCore.Mvc.ProblemDetails!
+static Koras.Results.AspNetCore.ProblemDetailsExtensions.ToProblemDetails(this Koras.Results.Result result, Koras.Results.AspNetCore.KorasResultsOptions? options = null, Koras.Results.AspNetCore.IErrorMessageLocalizer? localizer = null) -> Microsoft.AspNetCore.Mvc.ProblemDetails!
+static Koras.Results.AspNetCore.ProblemDetailsExtensions.ToProblemDetails<T>(this Koras.Results.Result<T> result, Koras.Results.AspNetCore.KorasResultsOptions? options = null, Koras.Results.AspNetCore.IErrorMessageLocalizer? localizer = null) -> Microsoft.AspNetCore.Mvc.ProblemDetails!
+static readonly Koras.Results.AspNetCore.PassThroughErrorMessageLocalizer.Instance -> Koras.Results.AspNetCore.PassThroughErrorMessageLocalizer!

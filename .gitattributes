@@ -1,0 +1,11 @@
+# Normalize line endings; the repository is authored LF-first.
+* text=auto eol=lf
+
+*.sh  text eol=lf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets
+*.png binary
+*.ico binary
+*.snk binary

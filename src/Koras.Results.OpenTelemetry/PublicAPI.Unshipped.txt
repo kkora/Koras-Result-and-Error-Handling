@@ -1,0 +1,12 @@
+#nullable enable
+const Koras.Results.OpenTelemetry.KorasResultsActivityTags.AggregateCount = "koras.error.aggregate_count" -> string!
+const Koras.Results.OpenTelemetry.KorasResultsActivityTags.ErrorCode = "koras.error.code" -> string!
+const Koras.Results.OpenTelemetry.KorasResultsActivityTags.ErrorType = "error.type" -> string!
+Koras.Results.OpenTelemetry.ActivityResultExtensions
+Koras.Results.OpenTelemetry.KorasResultsActivityTags
+static Koras.Results.OpenTelemetry.ActivityResultExtensions.TagActivity(this Koras.Results.Result result, System.Diagnostics.Activity? activity) -> Koras.Results.Result
+static Koras.Results.OpenTelemetry.ActivityResultExtensions.TagActivity<T>(this Koras.Results.Result<T> result, System.Diagnostics.Activity? activity) -> Koras.Results.Result<T>
+static Koras.Results.OpenTelemetry.ActivityResultExtensions.TagCurrentActivity(this Koras.Results.Result result) -> Koras.Results.Result
+static Koras.Results.OpenTelemetry.ActivityResultExtensions.TagCurrentActivity<T>(this Koras.Results.Result<T> result) -> Koras.Results.Result<T>
+static Koras.Results.OpenTelemetry.ActivityResultExtensions.TapActivityErrorAsync(this System.Threading.Tasks.Task<Koras.Results.Result>! resultTask) -> System.Threading.Tasks.Task<Koras.Results.Result>!
+static Koras.Results.OpenTelemetry.ActivityResultExtensions.TapActivityErrorAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!

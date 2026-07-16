@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/benchmarks/">
+    <Project Path="benchmarks/Koras.Results.Benchmarks/Koras.Results.Benchmarks.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Console.Sample/Console.Sample.csproj" />
+    <Project Path="samples/MinimalApi.Sample/MinimalApi.Sample.csproj" />
+    <Project Path="samples/WebApi.Sample/WebApi.Sample.csproj" />
+    <Project Path="samples/WorkerService.Sample/WorkerService.Sample.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Koras.Results.AspNetCore/Koras.Results.AspNetCore.csproj" />
+    <Project Path="src/Koras.Results.FluentValidation/Koras.Results.FluentValidation.csproj" />
+    <Project Path="src/Koras.Results.MediatR/Koras.Results.MediatR.csproj" />
+    <Project Path="src/Koras.Results.OpenTelemetry/Koras.Results.OpenTelemetry.csproj" />
+    <Project Path="src/Koras.Results/Koras.Results.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Koras.Results.ArchitectureTests/Koras.Results.ArchitectureTests.csproj" />
+    <Project Path="tests/Koras.Results.IntegrationTests/Koras.Results.IntegrationTests.csproj" />
+    <Project Path="tests/Koras.Results.UnitTests/Koras.Results.UnitTests.csproj" />
+  </Folder>
+</Solution>

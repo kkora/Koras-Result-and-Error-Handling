@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Koras.Results</PackageId>
+    <Description>A lightweight, strongly typed Result pattern and standardized error-handling library for .NET. Provides allocation-free Result and Result&lt;T&gt; types, a semantic error taxonomy with codes and metadata, functional composition (Map, Bind, Match, Ensure, Try, Combine) with full async support, and System.Text.Json serialization. Zero dependencies.</Description>
+  </PropertyGroup>
+
+</Project>

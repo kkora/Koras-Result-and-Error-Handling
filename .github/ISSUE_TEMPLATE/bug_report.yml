@@ -1,0 +1,62 @@
+name: Bug report
+description: Something is broken or behaves incorrectly
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      multiple: true
+      options:
+        - Koras.Results
+        - Koras.Results.AspNetCore
+        - Koras.Results.FluentValidation
+        - Koras.Results.MediatR
+        - Koras.Results.OpenTelemetry
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: framework
+    attributes:
+      label: Target framework & runtime
+      placeholder: "net10.0, .NET SDK 10.0.100, Linux"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: The smallest code that shows the problem — a failing test is ideal.
+      render: csharp
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include full exception messages / ProblemDetails payloads where relevant.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues
+          required: true
+        - label: This is not a security vulnerability (those go through SECURITY.md, never public issues)
+          required: true

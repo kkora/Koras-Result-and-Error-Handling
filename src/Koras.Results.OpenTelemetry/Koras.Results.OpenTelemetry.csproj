@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Koras.Results.OpenTelemetry</PackageId>
+    <Description>OpenTelemetry-friendly observability for Koras.Results: tags the current System.Diagnostics.Activity with error.type and koras.error.code on failures, following OpenTelemetry semantic conventions. Depends only on System.Diagnostics.DiagnosticSource — composes with any OpenTelemetry SDK setup.</Description>
+  </PropertyGroup>
+
+  <!-- System.Diagnostics.Activity ships in-box for net8.0+; no package reference needed (NU1510). -->
+  <ItemGroup>
+    <ProjectReference Include="../Koras.Results/Koras.Results.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Koras.Results.MediatR</PackageId>
+    <Description>MediatR integration for Koras.Results: a validation pipeline behavior that runs FluentValidation validators and short-circuits with a failed Result instead of throwing ValidationException. Depends on MediatR 12.x (Apache-2.0 licensed versions).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Koras.Results/Koras.Results.csproj" />
+    <ProjectReference Include="../Koras.Results.FluentValidation/Koras.Results.FluentValidation.csproj" />
+  </ItemGroup>
+
+</Project>

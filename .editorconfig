@@ -1,0 +1,96 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[*.{json,yml,yaml,xml,csproj,props,targets,config}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.cs]
+# --- C# style ---
+csharp_style_namespace_declarations = file_scoped:error
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_prefer_braces = true:warning
+csharp_style_prefer_switch_expression = true:suggestion
+csharp_using_directive_placement = outside_namespace:error
+csharp_style_prefer_primary_constructors = false:none
+
+# --- .NET style ---
+dotnet_sort_system_directives_first = true
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_property = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:error
+dotnet_style_readonly_field = true:error
+
+# --- Naming: private static fields are PascalCase; private instance fields are _camelCase ---
+dotnet_naming_rule.private_static_fields_pascal.symbols = private_static_fields
+dotnet_naming_rule.private_static_fields_pascal.style = pascal_case_style
+dotnet_naming_rule.private_static_fields_pascal.severity = warning
+dotnet_naming_symbols.private_static_fields.applicable_kinds = field
+dotnet_naming_symbols.private_static_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_static_fields.required_modifiers = static
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+dotnet_naming_rule.private_fields_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_underscore.style = underscore_camel
+dotnet_naming_rule.private_fields_underscore.severity = warning
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_style.underscore_camel.capitalization = camel_case
+dotnet_naming_style.underscore_camel.required_prefix = _
+
+# --- Analyzer tuning ---
+# CA1062 is superseded by nullable reference types + explicit guards.
+dotnet_diagnostic.CA1062.severity = none
+# CA1716 (identifiers matching keywords): Error is the domain term of this library.
+dotnet_diagnostic.CA1716.severity = none
+# RS0026/RS0027: optional-parameter overloads are deliberate, documented API decisions here.
+dotnet_diagnostic.RS0026.severity = none
+dotnet_diagnostic.RS0027.severity = none
+
+# --- StyleCop tuning (see stylecop.json) ---
+# Ordering: member ordering is dictated by readability of each type, reviewed in PRs.
+dotnet_analyzer_diagnostic.category-StyleCop.CSharp.OrderingRules.severity = none
+# SA1101 (prefix this.), SA1309 (underscore fields) conflict with repo conventions above.
+dotnet_diagnostic.SA1101.severity = none
+dotnet_diagnostic.SA1309.severity = none
+# File headers are not used; license is expressed via the MIT LICENSE file.
+dotnet_diagnostic.SA1633.severity = none
+# SA1600-series: public XML docs are enforced by CS1591 + GenerateDocumentationFile instead.
+dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.SA1601.severity = none
+dotnet_diagnostic.SA1602.severity = none
+# SA1615/SA1611/SA1618: <returns>/<param> coverage is reviewed by humans; CS1591 gates presence.
+dotnet_diagnostic.SA1611.severity = none
+dotnet_diagnostic.SA1615.severity = none
+dotnet_diagnostic.SA1618.severity = none
+# SA1649 (file name = type name): generic types use ResultOfT.cs convention.
+dotnet_diagnostic.SA1649.severity = none
+# SA1623 (property doc must begin 'Gets...'): style noise on expressive summaries.
+dotnet_diagnostic.SA1623.severity = none
+# Blank-line micro-layout left to dotnet format whitespace rules.
+dotnet_diagnostic.SA1512.severity = none
+dotnet_diagnostic.SA1513.severity = none
+dotnet_diagnostic.SA1515.severity = none
+dotnet_diagnostic.SA1516.severity = none
+# SA1000 'new' spacing conflicts with target-typed new() formatting.
+dotnet_diagnostic.SA1000.severity = none
+
+[**/tests/**.cs]
+dotnet_diagnostic.SA1200.severity = none
+
+[*.{sh,ps1}]
+indent_size = 2

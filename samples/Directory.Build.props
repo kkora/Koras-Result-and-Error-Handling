@@ -1,0 +1,12 @@
+<Project>
+
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..'))" />
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <!-- CA1848/CA1873: samples deliberately use plain ILogger calls for readability. -->
+    <NoWarn>$(NoWarn);CS1591;CA1848;CA1873</NoWarn>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,159 @@
+#nullable enable
+Koras.Results.AggregateError
+Koras.Results.AggregateError.AggregateError(System.Collections.Generic.IEnumerable<Koras.Results.Error!>! errors) -> void
+Koras.Results.AggregateError.Errors.get -> System.Collections.Generic.IReadOnlyList<Koras.Results.Error!>!
+Koras.Results.Error
+Koras.Results.Error.Code.get -> string!
+Koras.Results.Error.Equals(Koras.Results.Error? other) -> bool
+Koras.Results.Error.Error(string! code, string! message, Koras.Results.ErrorType type, System.Collections.Generic.IReadOnlyDictionary<string!, object?>? metadata = null) -> void
+Koras.Results.Error.Message.get -> string!
+Koras.Results.Error.Metadata.get -> System.Collections.Generic.IReadOnlyDictionary<string!, object?>!
+Koras.Results.Error.Type.get -> Koras.Results.ErrorType
+Koras.Results.Error.WithMetadata(System.Collections.Generic.IReadOnlyDictionary<string!, object?>! metadata) -> Koras.Results.Error!
+Koras.Results.Error.WithMetadata(string! key, object? value) -> Koras.Results.Error!
+Koras.Results.ErrorType
+Koras.Results.ErrorType.Conflict = 3 -> Koras.Results.ErrorType
+Koras.Results.ErrorType.Failure = 0 -> Koras.Results.ErrorType
+Koras.Results.ErrorType.Forbidden = 5 -> Koras.Results.ErrorType
+Koras.Results.ErrorType.NotFound = 2 -> Koras.Results.ErrorType
+Koras.Results.ErrorType.Unauthorized = 4 -> Koras.Results.ErrorType
+Koras.Results.ErrorType.Unavailable = 6 -> Koras.Results.ErrorType
+Koras.Results.ErrorType.Unexpected = 7 -> Koras.Results.ErrorType
+Koras.Results.ErrorType.Validation = 1 -> Koras.Results.ErrorType
+Koras.Results.FieldError
+Koras.Results.FieldError.Code.get -> string?
+Koras.Results.FieldError.Code.init -> void
+Koras.Results.FieldError.FieldError(string! PropertyName, string! Message, string? Code = null) -> void
+Koras.Results.FieldError.Message.get -> string!
+Koras.Results.FieldError.Message.init -> void
+Koras.Results.FieldError.PropertyName.get -> string!
+Koras.Results.FieldError.PropertyName.init -> void
+Koras.Results.Result
+Koras.Results.Result.Equals(Koras.Results.Result other) -> bool
+Koras.Results.Result.Error.get -> Koras.Results.Error!
+Koras.Results.Result.IsFailure.get -> bool
+Koras.Results.Result.IsSuccess.get -> bool
+Koras.Results.Result.Result() -> void
+Koras.Results.Result<T>
+Koras.Results.Result<T>.Equals(Koras.Results.Result<T> other) -> bool
+Koras.Results.Result<T>.Error.get -> Koras.Results.Error!
+Koras.Results.Result<T>.GetValueOrDefault() -> T?
+Koras.Results.Result<T>.GetValueOrDefault(T fallback) -> T
+Koras.Results.Result<T>.IsFailure.get -> bool
+Koras.Results.Result<T>.IsSuccess.get -> bool
+Koras.Results.Result<T>.Result() -> void
+Koras.Results.Result<T>.ToResult() -> Koras.Results.Result
+Koras.Results.Result<T>.TryGetError(out Koras.Results.Error! error) -> bool
+Koras.Results.Result<T>.TryGetValue(out T value) -> bool
+Koras.Results.Result<T>.Value.get -> T
+Koras.Results.ResultAsyncExtensions
+Koras.Results.ResultExtensions
+Koras.Results.Serialization.AggregateErrorJsonConverter
+Koras.Results.Serialization.AggregateErrorJsonConverter.AggregateErrorJsonConverter() -> void
+Koras.Results.Serialization.ErrorJsonConverter
+Koras.Results.Serialization.ErrorJsonConverter.ErrorJsonConverter() -> void
+Koras.Results.Serialization.ResultJsonConverter
+Koras.Results.Serialization.ResultJsonConverter.ResultJsonConverter() -> void
+Koras.Results.Serialization.ResultJsonConverterFactory
+Koras.Results.Serialization.ResultJsonConverterFactory.ResultJsonConverterFactory() -> void
+Koras.Results.Serialization.ValidationErrorJsonConverter
+Koras.Results.Serialization.ValidationErrorJsonConverter.ValidationErrorJsonConverter() -> void
+Koras.Results.ValidationError
+Koras.Results.ValidationError.FieldErrors.get -> System.Collections.Generic.IReadOnlyList<Koras.Results.FieldError!>!
+Koras.Results.ValidationError.ValidationError(System.Collections.Generic.IEnumerable<Koras.Results.FieldError!>! fieldErrors) -> void
+Koras.Results.ValidationError.ValidationError(params Koras.Results.FieldError![]! fieldErrors) -> void
+Koras.Results.ValidationError.ValidationError(string! code, string! message, System.Collections.Generic.IEnumerable<Koras.Results.FieldError!>! fieldErrors) -> void
+const Koras.Results.AggregateError.DefaultCode = "Errors.Multiple" -> string!
+const Koras.Results.ValidationError.DefaultCode = "Validation.Failed" -> string!
+const Koras.Results.ValidationError.DefaultMessage = "One or more validation errors occurred." -> string!
+override Koras.Results.Error.Equals(object? obj) -> bool
+override Koras.Results.Error.GetHashCode() -> int
+override Koras.Results.Error.ToString() -> string!
+override Koras.Results.Result.Equals(object? obj) -> bool
+override Koras.Results.Result.GetHashCode() -> int
+override Koras.Results.Result.ToString() -> string!
+override Koras.Results.Result<T>.Equals(object? obj) -> bool
+override Koras.Results.Result<T>.GetHashCode() -> int
+override Koras.Results.Result<T>.ToString() -> string!
+override Koras.Results.Serialization.AggregateErrorJsonConverter.Read(ref System.Text.Json.Utf8JsonReader reader, System.Type! typeToConvert, System.Text.Json.JsonSerializerOptions! options) -> Koras.Results.AggregateError!
+override Koras.Results.Serialization.AggregateErrorJsonConverter.Write(System.Text.Json.Utf8JsonWriter! writer, Koras.Results.AggregateError! value, System.Text.Json.JsonSerializerOptions! options) -> void
+override Koras.Results.Serialization.ErrorJsonConverter.CanConvert(System.Type! typeToConvert) -> bool
+override Koras.Results.Serialization.ErrorJsonConverter.Read(ref System.Text.Json.Utf8JsonReader reader, System.Type! typeToConvert, System.Text.Json.JsonSerializerOptions! options) -> Koras.Results.Error!
+override Koras.Results.Serialization.ErrorJsonConverter.Write(System.Text.Json.Utf8JsonWriter! writer, Koras.Results.Error! value, System.Text.Json.JsonSerializerOptions! options) -> void
+override Koras.Results.Serialization.ResultJsonConverter.Read(ref System.Text.Json.Utf8JsonReader reader, System.Type! typeToConvert, System.Text.Json.JsonSerializerOptions! options) -> Koras.Results.Result
+override Koras.Results.Serialization.ResultJsonConverter.Write(System.Text.Json.Utf8JsonWriter! writer, Koras.Results.Result value, System.Text.Json.JsonSerializerOptions! options) -> void
+override Koras.Results.Serialization.ResultJsonConverterFactory.CanConvert(System.Type! typeToConvert) -> bool
+override Koras.Results.Serialization.ResultJsonConverterFactory.CreateConverter(System.Type! typeToConvert, System.Text.Json.JsonSerializerOptions! options) -> System.Text.Json.Serialization.JsonConverter!
+override Koras.Results.Serialization.ValidationErrorJsonConverter.Read(ref System.Text.Json.Utf8JsonReader reader, System.Type! typeToConvert, System.Text.Json.JsonSerializerOptions! options) -> Koras.Results.ValidationError!
+override Koras.Results.Serialization.ValidationErrorJsonConverter.Write(System.Text.Json.Utf8JsonWriter! writer, Koras.Results.ValidationError! value, System.Text.Json.JsonSerializerOptions! options) -> void
+static Koras.Results.Error.Conflict(string! code, string! message) -> Koras.Results.Error!
+static Koras.Results.Error.Failure(string! code, string! message) -> Koras.Results.Error!
+static Koras.Results.Error.Forbidden(string! code, string! message) -> Koras.Results.Error!
+static Koras.Results.Error.NotFound(string! code, string! message) -> Koras.Results.Error!
+static Koras.Results.Error.Unauthorized(string! code, string! message) -> Koras.Results.Error!
+static Koras.Results.Error.Unavailable(string! code, string! message) -> Koras.Results.Error!
+static Koras.Results.Error.Unexpected(string! code, string! message) -> Koras.Results.Error!
+static Koras.Results.Error.Validation(string! code, string! message) -> Koras.Results.Error!
+static Koras.Results.Result.Combine(System.Collections.Generic.IEnumerable<Koras.Results.Result>! results) -> Koras.Results.Result
+static Koras.Results.Result.Combine(params Koras.Results.Result[]! results) -> Koras.Results.Result
+static Koras.Results.Result.Combine<T1, T2, T3, T4>(Koras.Results.Result<T1> result1, Koras.Results.Result<T2> result2, Koras.Results.Result<T3> result3, Koras.Results.Result<T4> result4) -> Koras.Results.Result<(T1 First, T2 Second, T3 Third, T4 Fourth)>
+static Koras.Results.Result.Combine<T1, T2, T3>(Koras.Results.Result<T1> result1, Koras.Results.Result<T2> result2, Koras.Results.Result<T3> result3) -> Koras.Results.Result<(T1 First, T2 Second, T3 Third)>
+static Koras.Results.Result.Combine<T1, T2>(Koras.Results.Result<T1> result1, Koras.Results.Result<T2> result2) -> Koras.Results.Result<(T1 First, T2 Second)>
+static Koras.Results.Result.Failure(Koras.Results.Error! error) -> Koras.Results.Result
+static Koras.Results.Result.Failure<T>(Koras.Results.Error! error) -> Koras.Results.Result<T>
+static Koras.Results.Result.FromError(Koras.Results.Error! error) -> Koras.Results.Result
+static Koras.Results.Result.Success() -> Koras.Results.Result
+static Koras.Results.Result.Success<T>(T value) -> Koras.Results.Result<T>
+static Koras.Results.Result.Try(System.Action! action, System.Func<System.Exception!, Koras.Results.Error!>? mapError = null) -> Koras.Results.Result
+static Koras.Results.Result.Try<T>(System.Func<T>! func, System.Func<System.Exception!, Koras.Results.Error!>? mapError = null) -> Koras.Results.Result<T>
+static Koras.Results.Result.TryAsync(System.Func<System.Threading.Tasks.Task!>! action, System.Func<System.Exception!, Koras.Results.Error!>? mapError = null) -> System.Threading.Tasks.Task<Koras.Results.Result>!
+static Koras.Results.Result.TryAsync<T>(System.Func<System.Threading.Tasks.Task<T>!>! func, System.Func<System.Exception!, Koras.Results.Error!>? mapError = null) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.Result.implicit operator Koras.Results.Result(Koras.Results.Error! error) -> Koras.Results.Result
+static Koras.Results.Result.operator !=(Koras.Results.Result left, Koras.Results.Result right) -> bool
+static Koras.Results.Result.operator ==(Koras.Results.Result left, Koras.Results.Result right) -> bool
+static Koras.Results.Result<T>.implicit operator Koras.Results.Result(Koras.Results.Result<T> result) -> Koras.Results.Result
+static Koras.Results.Result<T>.implicit operator Koras.Results.Result<T>(Koras.Results.Error! error) -> Koras.Results.Result<T>
+static Koras.Results.Result<T>.implicit operator Koras.Results.Result<T>(T value) -> Koras.Results.Result<T>
+static Koras.Results.Result<T>.operator !=(Koras.Results.Result<T> left, Koras.Results.Result<T> right) -> bool
+static Koras.Results.Result<T>.operator ==(Koras.Results.Result<T> left, Koras.Results.Result<T> right) -> bool
+static Koras.Results.ResultAsyncExtensions.BindAsync(this System.Threading.Tasks.Task<Koras.Results.Result>! resultTask, System.Func<System.Threading.Tasks.Task<Koras.Results.Result>!>! bind) -> System.Threading.Tasks.Task<Koras.Results.Result>!
+static Koras.Results.ResultAsyncExtensions.BindAsync<TIn, TOut>(this Koras.Results.Result<TIn> result, System.Func<TIn, System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!>! bind) -> System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!
+static Koras.Results.ResultAsyncExtensions.BindAsync<TIn, TOut>(this System.Threading.Tasks.Task<Koras.Results.Result<TIn>>! resultTask, System.Func<TIn, Koras.Results.Result<TOut>>! bind) -> System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!
+static Koras.Results.ResultAsyncExtensions.BindAsync<TIn, TOut>(this System.Threading.Tasks.Task<Koras.Results.Result<TIn>>! resultTask, System.Func<TIn, System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!>! bind) -> System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!
+static Koras.Results.ResultAsyncExtensions.BindAsync<TIn>(this System.Threading.Tasks.Task<Koras.Results.Result<TIn>>! resultTask, System.Func<TIn, System.Threading.Tasks.Task<Koras.Results.Result>!>! bind) -> System.Threading.Tasks.Task<Koras.Results.Result>!
+static Koras.Results.ResultAsyncExtensions.EnsureAsync<T>(this Koras.Results.Result<T> result, System.Func<T, System.Threading.Tasks.Task<bool>!>! predicate, Koras.Results.Error! error) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.ResultAsyncExtensions.EnsureAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask, System.Func<T, System.Threading.Tasks.Task<bool>!>! predicate, Koras.Results.Error! error) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.ResultAsyncExtensions.EnsureAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask, System.Func<T, bool>! predicate, Koras.Results.Error! error) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.ResultAsyncExtensions.MapAsync<TIn, TOut>(this Koras.Results.Result<TIn> result, System.Func<TIn, System.Threading.Tasks.Task<TOut>!>! map) -> System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!
+static Koras.Results.ResultAsyncExtensions.MapAsync<TIn, TOut>(this System.Threading.Tasks.Task<Koras.Results.Result<TIn>>! resultTask, System.Func<TIn, System.Threading.Tasks.Task<TOut>!>! map) -> System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!
+static Koras.Results.ResultAsyncExtensions.MapAsync<TIn, TOut>(this System.Threading.Tasks.Task<Koras.Results.Result<TIn>>! resultTask, System.Func<TIn, TOut>! map) -> System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!
+static Koras.Results.ResultAsyncExtensions.MapAsync<TOut>(this System.Threading.Tasks.Task<Koras.Results.Result>! resultTask, System.Func<TOut>! map) -> System.Threading.Tasks.Task<Koras.Results.Result<TOut>>!
+static Koras.Results.ResultAsyncExtensions.MatchAsync<TIn, TOut>(this System.Threading.Tasks.Task<Koras.Results.Result<TIn>>! resultTask, System.Func<TIn, System.Threading.Tasks.Task<TOut>!>! onSuccess, System.Func<Koras.Results.Error!, System.Threading.Tasks.Task<TOut>!>! onFailure) -> System.Threading.Tasks.Task<TOut>!
+static Koras.Results.ResultAsyncExtensions.MatchAsync<TIn, TOut>(this System.Threading.Tasks.Task<Koras.Results.Result<TIn>>! resultTask, System.Func<TIn, TOut>! onSuccess, System.Func<Koras.Results.Error!, TOut>! onFailure) -> System.Threading.Tasks.Task<TOut>!
+static Koras.Results.ResultAsyncExtensions.MatchAsync<TOut>(this System.Threading.Tasks.Task<Koras.Results.Result>! resultTask, System.Func<TOut>! onSuccess, System.Func<Koras.Results.Error!, TOut>! onFailure) -> System.Threading.Tasks.Task<TOut>!
+static Koras.Results.ResultAsyncExtensions.TapAsync(this System.Threading.Tasks.Task<Koras.Results.Result>! resultTask, System.Action! action) -> System.Threading.Tasks.Task<Koras.Results.Result>!
+static Koras.Results.ResultAsyncExtensions.TapAsync<T>(this Koras.Results.Result<T> result, System.Func<T, System.Threading.Tasks.Task!>! action) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.ResultAsyncExtensions.TapAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask, System.Action<T>! action) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.ResultAsyncExtensions.TapAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask, System.Func<T, System.Threading.Tasks.Task!>! action) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.ResultAsyncExtensions.TapErrorAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask, System.Action<Koras.Results.Error!>! action) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.ResultAsyncExtensions.TapErrorAsync<T>(this System.Threading.Tasks.Task<Koras.Results.Result<T>>! resultTask, System.Func<Koras.Results.Error!, System.Threading.Tasks.Task!>! action) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!
+static Koras.Results.ResultExtensions.Bind(this Koras.Results.Result result, System.Func<Koras.Results.Result>! bind) -> Koras.Results.Result
+static Koras.Results.ResultExtensions.Bind<TIn, TOut>(this Koras.Results.Result<TIn> result, System.Func<TIn, Koras.Results.Result<TOut>>! bind) -> Koras.Results.Result<TOut>
+static Koras.Results.ResultExtensions.Bind<TIn>(this Koras.Results.Result<TIn> result, System.Func<TIn, Koras.Results.Result>! bind) -> Koras.Results.Result
+static Koras.Results.ResultExtensions.Bind<TOut>(this Koras.Results.Result result, System.Func<Koras.Results.Result<TOut>>! bind) -> Koras.Results.Result<TOut>
+static Koras.Results.ResultExtensions.Ensure<T>(this Koras.Results.Result<T> result, System.Func<T, bool>! predicate, Koras.Results.Error! error) -> Koras.Results.Result<T>
+static Koras.Results.ResultExtensions.Ensure<T>(this Koras.Results.Result<T> result, System.Func<T, bool>! predicate, System.Func<T, Koras.Results.Error!>! errorFactory) -> Koras.Results.Result<T>
+static Koras.Results.ResultExtensions.Map<TIn, TOut>(this Koras.Results.Result<TIn> result, System.Func<TIn, TOut>! map) -> Koras.Results.Result<TOut>
+static Koras.Results.ResultExtensions.Map<TOut>(this Koras.Results.Result result, System.Func<TOut>! map) -> Koras.Results.Result<TOut>
+static Koras.Results.ResultExtensions.MapError(this Koras.Results.Result result, System.Func<Koras.Results.Error!, Koras.Results.Error!>! map) -> Koras.Results.Result
+static Koras.Results.ResultExtensions.MapError<T>(this Koras.Results.Result<T> result, System.Func<Koras.Results.Error!, Koras.Results.Error!>! map) -> Koras.Results.Result<T>
+static Koras.Results.ResultExtensions.Match<TIn, TOut>(this Koras.Results.Result<TIn> result, System.Func<TIn, TOut>! onSuccess, System.Func<Koras.Results.Error!, TOut>! onFailure) -> TOut
+static Koras.Results.ResultExtensions.Match<TOut>(this Koras.Results.Result result, System.Func<TOut>! onSuccess, System.Func<Koras.Results.Error!, TOut>! onFailure) -> TOut
+static Koras.Results.ResultExtensions.Switch(this Koras.Results.Result result, System.Action! onSuccess, System.Action<Koras.Results.Error!>! onFailure) -> void
+static Koras.Results.ResultExtensions.Switch<TIn>(this Koras.Results.Result<TIn> result, System.Action<TIn>! onSuccess, System.Action<Koras.Results.Error!>! onFailure) -> void
+static Koras.Results.ResultExtensions.Tap(this Koras.Results.Result result, System.Action! action) -> Koras.Results.Result
+static Koras.Results.ResultExtensions.Tap<T>(this Koras.Results.Result<T> result, System.Action<T>! action) -> Koras.Results.Result<T>
+static Koras.Results.ResultExtensions.TapError(this Koras.Results.Result result, System.Action<Koras.Results.Error!>! action) -> Koras.Results.Result
+static Koras.Results.ResultExtensions.TapError<T>(this Koras.Results.Result<T> result, System.Action<Koras.Results.Error!>! action) -> Koras.Results.Result<T>
+static readonly Koras.Results.Error.None -> Koras.Results.Error!
+static readonly Koras.Results.Error.Uninitialized -> Koras.Results.Error!

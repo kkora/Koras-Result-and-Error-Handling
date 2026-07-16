@@ -1,0 +1,8 @@
+#nullable enable
+Koras.Results.FluentValidation.ValidationResultExtensions
+Koras.Results.FluentValidation.ValidatorExtensions
+static Koras.Results.FluentValidation.ValidationResultExtensions.ToResult(this FluentValidation.Results.ValidationResult! validationResult) -> Koras.Results.Result
+static Koras.Results.FluentValidation.ValidationResultExtensions.ToResult<T>(this FluentValidation.Results.ValidationResult! validationResult, T value) -> Koras.Results.Result<T>
+static Koras.Results.FluentValidation.ValidationResultExtensions.ToValidationError(this FluentValidation.Results.ValidationResult! validationResult) -> Koras.Results.ValidationError!
+static Koras.Results.FluentValidation.ValidatorExtensions.ValidateToResult<T>(this FluentValidation.IValidator<T>! validator, T instance) -> Koras.Results.Result<T>
+static Koras.Results.FluentValidation.ValidatorExtensions.ValidateToResultAsync<T>(this FluentValidation.IValidator<T>! validator, T instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Koras.Results.Result<T>>!

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <RootNamespace>WebApiSample</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+    <PackageReference Include="MediatR" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Local project references during development. To consume released packages instead, replace with
+         PackageReferences to Koras.Results.AspNetCore, Koras.Results.FluentValidation, Koras.Results.MediatR. -->
+    <ProjectReference Include="../../src/Koras.Results/Koras.Results.csproj" />
+    <ProjectReference Include="../../src/Koras.Results.AspNetCore/Koras.Results.AspNetCore.csproj" />
+    <ProjectReference Include="../../src/Koras.Results.FluentValidation/Koras.Results.FluentValidation.csproj" />
+    <ProjectReference Include="../../src/Koras.Results.MediatR/Koras.Results.MediatR.csproj" />
+  </ItemGroup>
+
+</Project>
