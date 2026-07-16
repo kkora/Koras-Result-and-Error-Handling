@@ -6,7 +6,8 @@
     <IsPackable>false</IsPackable>
     <!-- BenchmarkDotNet manages its own build configuration concerns. -->
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <NoWarn>$(NoWarn);CS1591;CA1822</NoWarn>
+    <!-- CA1707: benchmark names use underscores, matching test naming style. -->
+    <NoWarn>$(NoWarn);CS1591;CA1822;CA1707</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
