@@ -6,8 +6,9 @@ release step runs on a developer machine.
 
 ## Prerequisites (once per repository)
 
-- The `nuget-release` GitHub environment exists, is protected, and holds the `NUGET_API_KEY`
-  secret — see [nuget-publishing.md](nuget-publishing.md).
+- The `nuget-release` GitHub environment exists and is protected, and a nuget.org Trusted
+  Publishing policy (owner `kora.kanchan`) pins this repository, `release.yml`, and that
+  environment — see [nuget-publishing.md](nuget-publishing.md). No API-key secret is stored.
 - You have completed the release-level Definition of Done
   (`docs/planning/definition-of-done.md`) and the checklists in
   [release-checklist.md](release-checklist.md) and `docs/security/security-checklist.md`.
@@ -71,8 +72,10 @@ the job starts):
 6. **Validate**: `bash build/validate-packages.sh artifacts` — per-TFM assemblies and XML docs,
    README/icon/nuspec metadata, symbols present, core has zero dependencies. A validation failure
    stops the release before anything is published.
-7. **Push to NuGet.org**: `dotnet nuget push "artifacts/*.nupkg" --api-key $NUGET_API_KEY
-   --source https://api.nuget.org/v3/index.json --skip-duplicate`. `--skip-duplicate` makes the
+7. **Push to NuGet.org**: `NuGet/login@v1` exchanges the job's GitHub OIDC token for a
+   short-lived API key (Trusted Publishing), then `dotnet nuget push "artifacts/*.nupkg"
+   --api-key <temp key> --source https://api.nuget.org/v3/index.json --skip-duplicate` runs
+   immediately after (the key lives 1 hour). `--skip-duplicate` makes the
    step idempotent: rerunning the workflow (e.g. after a transient failure later in the job) does
    not fail on already-published packages. Symbol packages upload automatically alongside their
    `.nupkg`.

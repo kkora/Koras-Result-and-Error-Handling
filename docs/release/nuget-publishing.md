@@ -10,30 +10,38 @@ One-time repository and nuget.org configuration required for the release pipelin
 `.github/workflows/release.yml` runs its single job with `environment: nuget-release`. Configure
 it under *Settings → Environments → nuget-release*:
 
-- **Secret `NUGET_API_KEY`** — the nuget.org API key, stored **only** in this environment (not as
-  a repository-level secret). Environment scoping means the key is exposed exclusively to
-  workflow runs that target this environment — i.e. tag-triggered release runs — never to PR or
-  push builds.
+- **No secrets required** — publishing uses [Trusted Publishing](https://learn.microsoft.com/en-us/nuget/nuget-org/trusted-publishing)
+  (OIDC), not a stored API key. The environment still matters: the nuget.org policy pins it, so
+  only workflow runs targeting `nuget-release` can obtain a publish credential.
 - **Protection rules (recommended)**: required reviewers (a human approves each release run
   before the job starts) and a deployment-branch/tag policy restricting the environment to
   `v*.*.*` tags. With required reviewers on, pushing a tag *queues* the release until approved —
   a useful last gate.
 
-### API key scoping guidance
-
-Create the key on nuget.org (*Account → API Keys*) with least privilege:
-
-- **Scope: Push only** — specifically *Push new packages and package versions*. The CI key must
-  not be able to unlist packages or manage key/owner settings.
-- **Package glob: `Koras.Results*`** — the key can push only this family, so a leaked key cannot
-  publish arbitrary packages under the account.
-- **Expiry**: nuget.org keys live at most 365 days. Track the expiry (calendar entry) and rotate
-  by generating a new key and replacing the environment secret; the old key can be revoked
-  immediately after a successful release with the new one.
-- Regenerate immediately if a release run ever prints the key or a fork PR somehow gains
-  environment access (it should not — environment secrets are not available to fork PRs).
-
 ## nuget.org setup
+
+### Trusted Publishing policy
+
+Publishing is keyless: the release job requests a GitHub OIDC token, `NuGet/login@v1` exchanges
+it with nuget.org for a **1-hour, single-use API key**, and `dotnet nuget push` uses that key.
+Nothing long-lived is stored anywhere, so there is no rotation and nothing to leak.
+
+Create the policy on nuget.org (*username menu → Trusted Publishing*), owned by the
+`kora.kanchan` user account:
+
+- **Repository Owner:** `kkora`
+- **Repository:** the GitHub repository name (must match exactly; update the policy if the
+  repository is ever renamed)
+- **Workflow File:** `release.yml` (file name only, no `.github/workflows/` path)
+- **Environment:** `nuget-release` — binds the policy to the protected environment above
+
+The workflow's `NuGet/login` step authenticates as `user: kora.kanchan`; the policy applies to
+all packages owned by that account.
+
+Note: for private repositories a new policy starts **temporarily active for 7 days** and must
+see one successful publish in that window to become permanent (nuget.org needs the repo ID from
+a real token to lock the policy against repo-resurrection attacks). If the window lapses, reset
+it from the Trusted Publishing page.
 
 ### Prefix reservation for `Koras`
 
