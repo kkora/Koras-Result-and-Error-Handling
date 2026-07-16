@@ -24,13 +24,23 @@ public sealed class PaymentGatewayProbe(HttpClient http)
             async () =>
             {
                 var started = System.Diagnostics.Stopwatch.GetTimestamp();
-                using var response = await http.GetAsync("/status", cancellationToken);
-                response.EnsureSuccessStatusCode();
+                try
+                {
+                    using var response = await http.GetAsync("/status", cancellationToken);
+                    response.EnsureSuccessStatusCode();
+                }
+                catch (TaskCanceledException) when (!cancellationToken.IsCancellationRequested)
+                {
+                    // HttpClient timeout — surface as TimeoutException so TryAsync maps it
+                    // (genuine cancellation still propagates and is rethrown by TryAsync).
+                    throw new TimeoutException("The status probe timed out.");
+                }
+
                 return System.Diagnostics.Stopwatch.GetElapsedTime(started);
             },
             ex => ex switch
             {
-                TaskCanceledException or TimeoutException =>
+                TimeoutException =>
                     Error.Unavailable("PaymentGateway.Timeout", "The payment gateway timed out."),
                 HttpRequestException =>
                     Error.Unavailable("PaymentGateway.Unreachable", "The payment gateway is unreachable."),
