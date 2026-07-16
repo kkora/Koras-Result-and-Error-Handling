@@ -38,7 +38,7 @@ forget:
 
 @if (_result is { } result)
 {
-    @result.Match<RenderFragment>(
+    @result.Match<Order, RenderFragment>(
         order => @<div class="order">
                      <h2>Order @order.Id</h2>
                      <p>@order.Status — @order.Total.ToString("C")</p>
