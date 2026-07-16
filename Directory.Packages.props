@@ -8,7 +8,7 @@
 
   <!-- Shipped package dependencies (see docs/architecture/dependency-rules.md before changing). -->
   <ItemGroup>
-    <PackageVersion Include="FluentValidation" Version="11.11.0" />
+    <PackageVersion Include="FluentValidation" Version="12.1.1" />
     <!-- MediatR is deliberately upper-bounded below 13.0 for licensing reasons: ADR-0006. -->
     <PackageVersion Include="MediatR" Version="[12.4.1,13.0.0)" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
