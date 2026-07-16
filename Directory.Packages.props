@@ -11,7 +11,7 @@
     <PackageVersion Include="FluentValidation" Version="11.11.0" />
     <!-- MediatR is deliberately upper-bounded below 13.0 for licensing reasons: ADR-0006. -->
     <PackageVersion Include="MediatR" Version="[12.4.1,13.0.0)" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.10" />
   </ItemGroup>
 
   <!-- Build-time only (never shipped as package dependencies). -->
