@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Dependency review
-        uses: actions/dependency-review-action@v4
+        uses: actions/dependency-review-action@v5
         with:
           fail-on-severity: moderate
           # MIT project: block copyleft and commercial creep at the door (see ADR-0006).
