@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Koras.Results/Koras.Results.csproj" />
+    <ProjectReference Include="../../src/Koras.Results.FluentValidation/Koras.Results.FluentValidation.csproj" />
+    <ProjectReference Include="../../src/Koras.Results.OpenTelemetry/Koras.Results.OpenTelemetry.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+name: Dependency review
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    name: Review dependency changes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Dependency review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: moderate
+          # MIT project: block copyleft and commercial creep at the door (see ADR-0006).
+          allow-licenses: MIT, Apache-2.0, BSD-2-Clause, BSD-3-Clause, MS-PL, 0BSD, ISC

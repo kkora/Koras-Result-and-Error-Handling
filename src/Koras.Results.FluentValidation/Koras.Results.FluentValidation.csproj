@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Koras.Results.FluentValidation</PackageId>
+    <Description>FluentValidation integration for Koras.Results: converts ValidationResult and ValidationFailure into typed ValidationError values, and provides ValidateToResult / ValidateToResultAsync for validating directly into Result&lt;T&gt;.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Koras.Results/Koras.Results.csproj" />
+  </ItemGroup>
+
+</Project>

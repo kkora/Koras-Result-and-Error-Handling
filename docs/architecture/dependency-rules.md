@@ -18,7 +18,7 @@
 | Koras.Results.FluentValidation | FluentValidation | ≥ 11.9 | Apache-2.0 | yes — by design |
 | Koras.Results.MediatR | MediatR | [12.4, 13.0) | Apache-2.0 | yes — by design (IPipelineBehavior) |
 | Koras.Results.MediatR | Microsoft.Extensions.DependencyInjection.Abstractions | ≥ 8.0 | MIT | yes (IServiceCollection) |
-| Koras.Results.OpenTelemetry | System.Diagnostics.DiagnosticSource | ≥ 8.0 | MIT | yes (Activity) |
+| Koras.Results.OpenTelemetry | — (System.Diagnostics.Activity is in-box on net8.0+) | — | — | yes (Activity) |
 
 Test/build-only dependencies (xUnit, coverlet, NetArchTest, Microsoft.AspNetCore.Mvc.Testing, BenchmarkDotNet, PublicApiAnalyzers, SourceLink) never ship in packages.
 

@@ -1,0 +1,58 @@
+<Project>
+
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..'))" />
+
+  <!-- Settings for all shipped packages. -->
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>$(MSBuildProjectName)</RootNamespace>
+  </PropertyGroup>
+
+  <!-- NuGet metadata shared by every package. -->
+  <PropertyGroup>
+    <Authors>Koras Technologies</Authors>
+    <Company>Koras Technologies</Company>
+    <Copyright>Copyright (c) Koras Technologies</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/korastechnologies/koras-results</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/korastechnologies/koras-results</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>result;result-pattern;error-handling;errors;problemdetails;railway;functional;ddd;clean-architecture</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>See https://github.com/korastechnologies/koras-results/blob/main/CHANGELOG.md</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <!-- Reproducibility, symbols, and Source Link. -->
+  <PropertyGroup>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <!-- Source Link ships in the .NET SDK; enable it only in CI where the GitHub origin is resolvable. -->
+    <EnableSourceLink Condition="'$(CI)' != 'true'">false</EnableSourceLink>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <!-- Set after 1.0.0 ships to enforce binary backward compatibility (ADR-0008):
+         <PackageValidationBaselineVersion>1.0.0</PackageValidationBaselineVersion> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(RepoRoot)assets/icon.png" Pack="true" PackagePath="/" Visible="false" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" PrivateAssets="all" />
+    <PackageReference Include="StyleCop.Analyzers" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="$(RepoRoot)stylecop.json" Link="stylecop.json" />
+    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
+    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
+  </ItemGroup>
+
+</Project>
