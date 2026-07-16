@@ -82,7 +82,7 @@ Build green (warnings-as-errors) · all tests green on all TFMs · `dotnet forma
 
 ## 14. Release workflow
 
-Documented in `docs/release/release-process.md`. Summary: update CHANGELOG, set version in `Directory.Build.props`, tag `vX.Y.Z`, GitHub Actions `release.yml` builds/tests/packs/publishes to NuGet.org (environment-protected secret `NUGET_API_KEY`).
+Documented in `docs/release/release-process.md`. Summary: update CHANGELOG, set version in `Directory.Build.props`, tag `vX.Y.Z`, GitHub Actions `release.yml` builds/tests/packs/publishes to NuGet.org via Trusted Publishing (OIDC, `nuget-release` environment; no stored API key).
 
 ## 15. Definition of done
 

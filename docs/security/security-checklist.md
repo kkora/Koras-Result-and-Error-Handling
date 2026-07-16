@@ -38,9 +38,9 @@ Complete alongside `docs/release/release-checklist.md`.
 
 - [ ] No secrets, credentials, tokens, or personal data in code, tests, samples, docs, or CI
       logs (DoD item; spot-check new files this release)
-- [ ] `NUGET_API_KEY` secret lives only in the protected `nuget-release` environment; key is
-      push-scoped to `Koras.Results*` and within its expiry (see
-      `docs/release/nuget-publishing.md`)
+- [ ] NuGet publishing is keyless (Trusted Publishing): no long-lived nuget.org API key exists
+      as a secret anywhere; the policy pins repository, workflow, and the protected
+      `nuget-release` environment (see `docs/release/nuget-publishing.md`)
 - [ ] Release built by the `release.yml` pipeline from a tag — never from a developer machine
 - [ ] Symbols (`.snupkg`) published and Source Link resolvable for the release build
 - [ ] `SECURITY.md` supported-versions table updated if this release changes the supported set
