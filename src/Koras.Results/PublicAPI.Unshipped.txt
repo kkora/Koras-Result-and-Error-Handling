@@ -21,13 +21,21 @@ Koras.Results.ErrorType.Unavailable = 6 -> Koras.Results.ErrorType
 Koras.Results.ErrorType.Unexpected = 7 -> Koras.Results.ErrorType
 Koras.Results.ErrorType.Validation = 1 -> Koras.Results.ErrorType
 Koras.Results.FieldError
+Koras.Results.FieldError.<Clone>$() -> Koras.Results.FieldError!
 Koras.Results.FieldError.Code.get -> string?
 Koras.Results.FieldError.Code.init -> void
+Koras.Results.FieldError.Deconstruct(out string! PropertyName, out string! Message, out string? Code) -> void
+Koras.Results.FieldError.Equals(Koras.Results.FieldError? other) -> bool
 Koras.Results.FieldError.FieldError(string! PropertyName, string! Message, string? Code = null) -> void
 Koras.Results.FieldError.Message.get -> string!
 Koras.Results.FieldError.Message.init -> void
 Koras.Results.FieldError.PropertyName.get -> string!
 Koras.Results.FieldError.PropertyName.init -> void
+override Koras.Results.FieldError.Equals(object? obj) -> bool
+override Koras.Results.FieldError.GetHashCode() -> int
+override Koras.Results.FieldError.ToString() -> string!
+static Koras.Results.FieldError.operator !=(Koras.Results.FieldError? left, Koras.Results.FieldError? right) -> bool
+static Koras.Results.FieldError.operator ==(Koras.Results.FieldError? left, Koras.Results.FieldError? right) -> bool
 Koras.Results.Result
 Koras.Results.Result.Equals(Koras.Results.Result other) -> bool
 Koras.Results.Result.Error.get -> Koras.Results.Error!
